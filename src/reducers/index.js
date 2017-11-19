@@ -39,7 +39,9 @@ const leaders = (state = {
       }
     case UPDATE_LEADER:
       let stateEntity = state.entities[action.id]
-      stateEntity.percent = action.percent
+      if (stateEntity) {
+        stateEntity.percent = action.percent
+      }
       return {
         ...state,
         entities: {

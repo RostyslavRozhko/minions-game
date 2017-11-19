@@ -19,7 +19,7 @@ class App extends Component {
         </nav>
 
         <main>
-          {<Redirect from="/" to="salesmen" />}
+          {<Redirect exact strict from="/" to="salesmen" />}
           <Route path="/salesmen" component={Salesmen}/>
           <Route path="/overview" component={Overview}/>
         </main>

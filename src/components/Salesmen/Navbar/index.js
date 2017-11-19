@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import FilterIcon from '../../../assets/funnel.png'
 import CalendarIcon from '../../../assets/weekly-calendar.png'
 import SearchIcon from '../../../assets/search-1.png'
-import {fetchLeaders, sortLeaders, searchLeaders, updateLeader} from '../../../actions'
+import {fetchLeaders, sortLeaders, searchLeaders} from '../../../actions'
 import {connect} from 'react-redux'
 import './index.css'
 

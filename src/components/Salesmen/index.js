@@ -26,7 +26,7 @@ class Salesmen extends Component {
               onLoadMore={() => dispatch(fetchLeaders())}
               hasMore={maxPage >= currPage}
             >
-            {result.map(id => <StatItem person={entities[id]} key={id} />)}
+            {result.map(id => <StatItem person={entities[id]} key={id+Math.random()*100} />)}
             </InfiniteScroll>
           </div>
         </div>

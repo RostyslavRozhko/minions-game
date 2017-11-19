@@ -18,6 +18,12 @@ export default class StatItem extends Component {
     delay(() => this.setState(() => ({in: true})), 200)
   }
 
+  // componentDidUpdate () {
+  //   this.setState(() => ({in: false}),
+  //   delay(() => this.setState(() => ({in: true})), 200)
+  //   )
+  // }
+
   render() {
     let {person: {id, name, percent, city}} = this.props
     percent = Math.round(percent/10 < 0 ? 0 : percent/10)

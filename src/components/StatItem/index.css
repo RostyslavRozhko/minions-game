@@ -1,0 +1,131 @@
+.stat-item__container {
+  display: grid;
+  grid-template-columns: 150px auto 7px;
+  grid-template-rows: 130px;
+  grid-template-areas: 
+    "name progress btn";
+
+  grid-gap: 25px;
+}
+
+.stat-item__name-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  grid-area: name;
+}
+
+.stat-item__name {
+  font-family: Fira Sans;
+  font-size: 18px;
+  font-weight: bold;
+  letter-spacing: -0.9px;
+  margin-bottom: 10px;
+}
+
+.stat-item__star-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.stat-item__progress-bar-container {
+  grid-area: progress;
+  position: relative;
+}
+
+.stat-item__progress-bar {
+  transition: width 2000ms ease-in-out;
+  position: absolute;
+  bottom: 0;
+  width: 0;
+  display: flex;
+  align-items: center;
+}
+
+.stat-item__minion-icon {
+  opacity: 0;
+  transition: opacity 2000ms ease-in-out;
+  position: absolute;
+  right: 0;
+  top: -70px;
+}
+
+.stat-item__line {
+  height: 7px;
+  background-color: #ff5400;
+  transition: background-color 2000ms ease-in-out;
+  flex: 1 1 auto;
+}
+
+.stat-item__indicator {
+  flex: 0 0 50px;
+  height: 25px;
+  border-radius: 10px;
+  background-color: #ff5400;
+  transition: background-color 2000ms ease-in-out;
+  opacity: 0;
+  transition: opacity 2000ms ease-in-out;
+  border: solid 3px #ffffff;
+
+  font-family: Fira Sans;
+  font-size: 16px;
+  font-weight: bold;
+  letter-spacing: -0.8px;
+  text-align: center;
+  color: black;
+  vertical-align: middle
+}
+
+.stat-item__btn-container {
+  grid-area: btn;
+  display: flex;
+  align-items: flex-end;
+}
+
+.stat-item__btn {
+}
+
+.tooltip {
+  position: relative;
+  height: 35px;
+  
+}
+
+.tooltip-text {
+  visibility: hidden;
+  box-sizing: border-box;
+  width: 201px;
+  height: 60px;
+  background-color: black;
+  color: white;
+  padding: 12px 30px;
+  border-radius: 10px;
+  font-family: Fira Sans;
+  font-size: 16px;
+  line-height: 1.13;
+  text-align: center;
+
+  position: absolute;
+  z-index: 1;
+  right: -83px;
+  top: -67px;
+}
+
+.tooltip-text:before{
+  content:'';
+  display:block;
+  width:0;
+  height:0;
+  position:absolute;
+  
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-top:8px solid black;
+  right: 91px;
+  
+  bottom: -7px;
+}
+
+.tooltip:hover .tooltip-text {
+  visibility: visible;
+}

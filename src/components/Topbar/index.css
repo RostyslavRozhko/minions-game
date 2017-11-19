@@ -1,0 +1,17 @@
+.topbar-container {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  background-color: #f0f0f0;
+  padding: 0 30px;
+}
+
+.topbar-logo {
+  font-family: Fira Sans;
+  font-size: 25.9px;
+  font-weight: bold;
+  line-height: 1.17;
+  letter-spacing: -1.3px;
+  text-align: left;
+  color: #010101;
+}

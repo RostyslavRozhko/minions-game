@@ -24,7 +24,7 @@ class App extends Component {
             <Route exact path="/overview" component={Overview}/>
             <Route exact path="/update" component={Update}/>
             <Route exact path="/salesmen" component={Salesmen}/>
-            <Redirect exact from="/" to={Salesmen}/>
+            <Redirect exact from="/" to="salesmen"/>
           </main>
         </div>
       </div>

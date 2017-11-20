@@ -21,6 +21,7 @@ module.exports = {
       .catch(error => res.status(400).send(error));
   },
   update(req, res) {
+    console.log(req.body);
     return Leader
       .findById(req.params.id)
       .then(leader => {
@@ -40,6 +41,12 @@ module.exports = {
           .catch((error) => res.status(400).send(error));
       })
       .catch((error) => res.status(400).send(error));
+  },
+  all(req, res) {
+    return Leader
+      .all()
+      .then(todos => res.status(200).send(todos))
+      .catch(error => res.status(400).send(error));
   },
   list(req, res) {
     let limit = 10

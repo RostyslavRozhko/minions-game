@@ -7,5 +7,6 @@ module.exports = (app) => {
 
   app.post('/api/leader', leadersController.create)
   app.get('/api/leaders', leadersController.list)
+  app.get('/api/allleaders', leadersController.all)
   app.put('/api/leaders/:id', leadersController.update);
 };

@@ -45,7 +45,7 @@ export default class StatItem extends Component {
           </div>
         </div>
         <div className="stat-item__progress-bar-container">
-          <div className="stat-item__progress-bar" ref={ref => {this.ref}} style={{
+          <div className="stat-item__progress-bar" style={{
               width: this.state.in && `${percent}%`   
             }}>
           <img src={icon} alt="minion" className="stat-item__minion-icon" style={{
@@ -53,14 +53,11 @@ export default class StatItem extends Component {
                 opacity: this.state.in && 1
               }} />
           <div className="stat-item__line" style={{
-              right: style.right && style.right,
-              color: style.color && style.color,
-              backgroundColor: this.state.in && style.backgroundColor
+              style,
+              backgroundColor: style.backgroundColor
             }}></div>
             <div className="stat-item__indicator" style={{
-              right: style.right && style.right,
-              color: style.color && style.color,
-              backgroundColor: this.state.in && style.backgroundColor,
+              ...style,
               opacity: this.state.in && 1
             }}>{percent}%</div>
           </div>

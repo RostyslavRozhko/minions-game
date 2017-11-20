@@ -1,4 +1,6 @@
 import { combineReducers } from 'redux'
+import { changeOrder } from '../utils/changeOrder'
+
 import {
   INVALIDATE_LEADERS,
   REQUEST_LEADERS,
@@ -47,7 +49,8 @@ const leaders = (state = {
         entities: {
           ...state.entities,
           [action.id]: stateEntity
-        }
+        },
+        result: changeOrder(state.entities, state.result, stateEntity, action.id)
       }
     default:
       return state

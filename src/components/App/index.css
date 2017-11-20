@@ -1,4 +1,4 @@
-html {
+html, body, #root {
   margin: 0;
   padding: 0;
   height: 100%;
@@ -6,26 +6,25 @@ html {
 }
 
 .container {
-  display: grid;
+  min-height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
 
-  width: 100vw;
-  height: 100vh;
-
-  grid-template-columns: 1fr 3fr;
-  grid-template-rows: 55px auto;
-  grid-template-areas: 
-    "header header"
-    "nav main"
+.main-container {
+  flex: auto;
+  display: flex;
 }
 
 main {
-  grid-area: main;
+  flex: 3;
 }
 
 header {
-  grid-area: header;
+  flex: 0 0 55px;
 }
 
 nav {
-  grid-area: nav;
+  flex: 1;
 }

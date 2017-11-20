@@ -16,14 +16,14 @@ a:link, a:visited, a:hover, a:active {
 
 .main-container__outer {
   box-sizing: border-box;
-  height: 100%;
+  min-height: 100%;
   background-color: #f5f5f5;
   padding: 19px 19px 0 19px;
 }
 
 .main-container__inner {
   box-sizing: border-box;
-  height: 100%;
+  min-height: 100%;
   padding: 0 25px;
   background-color: white;
 }

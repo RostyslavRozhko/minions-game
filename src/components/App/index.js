@@ -15,16 +15,18 @@ class App extends Component {
           <Topbar />
         </header>
         
-        <nav>
-          <Sidebar />
-        </nav>
+        <div className="main-container">
+          <nav>
+            <Sidebar />
+          </nav>
 
-        <main>
-          <Route exact path="/overview" component={Overview}/>
-          <Route exact path="/update" component={Update}/>
-          <Route exact path="/salesmen" component={Salesmen}/>
-          <Route exact path="/" component={Salesmen}/>
-        </main>
+          <main>
+            <Route exact path="/overview" component={Overview}/>
+            <Route exact path="/update" component={Update}/>
+            <Route exact path="/salesmen" component={Salesmen}/>
+            <Redirect exact from="/" to={Salesmen}/>
+          </main>
+        </div>
       </div>
     );
   }

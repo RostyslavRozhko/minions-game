@@ -1,18 +1,13 @@
 .stat-item__container {
-  display: grid;
-  grid-template-columns: 150px auto 7px;
-  grid-template-rows: 130px;
-  grid-template-areas: 
-    "name progress btn";
-
-  grid-gap: 25px;
+  display: flex;
+  height: 130px;
 }
 
 .stat-item__name-section {
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  grid-area: name;
+  flex: 0 0 150px;
 }
 
 .stat-item__name {
@@ -29,7 +24,8 @@
 }
 
 .stat-item__progress-bar-container {
-  grid-area: progress;
+  flex: 1 1 auto;
+  margin: 0 25px;
   position: relative;
 }
 
@@ -78,7 +74,7 @@
 }
 
 .stat-item__btn-container {
-  grid-area: btn;
+  flex: 0 0 7px;
   display: flex;
   align-items: flex-end;
 }

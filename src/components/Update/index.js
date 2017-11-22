@@ -53,7 +53,7 @@ export default class Topbar extends Component {
             <tr key={value.id}>
               <td>{value.id}</td>
               <td>{value.name}</td>
-              <td><input type="text" value={Math.round(value.percent/10)} onChange={evt => this.changePercent(evt, key)}/></td>
+              <td><input type="text" value={value.percent} onChange={evt => this.changePercent(evt, key)}/></td>
               <td><button onClick={() => this.update(key)}>update</button></td>
             </tr>
           ))}

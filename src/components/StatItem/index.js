@@ -20,7 +20,8 @@ export default class StatItem extends Component {
   
   render() {
     let {person: {id, name, percent, city}} = this.props
-    percent = Math.round(percent/10 < 0 ? 0 : percent/10)
+    percent = Math.round(percent)
+    const percentLineWidth = percent < 200 ? Math.round(percent/2) : 100
     const {icon, style} = getProgressStyle(percent)
 
     let stars = []
@@ -45,8 +46,9 @@ export default class StatItem extends Component {
           </div>
         </div>
         <div className="stat-item__progress-bar-container">
+          <div className="stat-item__100perc-indicator"></div>                    
           <div className="stat-item__progress-bar" style={{
-              width: this.state.in && `${percent}%`   
+              width: this.state.in && `${percentLineWidth}%`   
             }}>
           <img src={icon} alt="minion" className="stat-item__minion-icon" style={{
                 right: style.right,

@@ -16,6 +16,6 @@ export const getProgressStyle = (perc) => {
     case perc > 3 && perc < 6: return {icon: SchoolboyIcon, style: {backgroundColor: '#ff5400', color: 'white', right: "-30px"}}
     case perc > 1 && perc < 4: return {icon: SchoolboyIcon, style: {backgroundColor: '#ff5400', color: 'white', right: "-45px"}}
     case perc >= 0 && perc < 2: return {icon: SchoolboyIcon, style: {backgroundColor: '#ff5400', color: 'white', right: "-60px"}}
-    default: return {icon: SchoolboyIcon, style: {backgroundColor: '#ff5400', color: 'white', right: "-60px"}}
+    default: return {icon: SchoolboyIcon, style: {backgroundColor: '#94e100'}}
   }
 }

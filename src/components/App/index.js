@@ -23,8 +23,8 @@ class App extends Component {
           <main>
             <Route exact path="/overview" component={Overview}/>
             <Route exact path="/update" component={Update}/>
+            <Route exact path="/" component={Salesmen}/>
             <Route exact path="/salesmen" component={Salesmen}/>
-            <Redirect exact from="/" to="salesmen"/>
           </main>
         </div>
       </div>

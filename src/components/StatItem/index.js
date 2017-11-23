@@ -19,10 +19,20 @@ export default class StatItem extends Component {
   }
   
   render() {
-    let {person: {id, name, percent, city}} = this.props
+    const {person: {id, name, city}, fields} = this.props
+    let {person: {percent}} = this.props
     percent = Math.round(percent)
-    const percentLineWidth = percent < 200 ? Math.round(percent/2) : 100
-    const {icon, style} = getProgressStyle(percent)
+
+    const getPercentCoeff = () => {
+      switch(true) {
+        case percent <= 300: return Math.round(percent/fields)
+        case percent > 300 && percent < 1000: return 75 + (25-(1000-percent)*0.035)
+        default: return 100 
+
+      }
+    }
+    const percentLineWidth = getPercentCoeff()
+    const {icon, style} = getProgressStyle(percent, fields)
 
     let stars = []
     const starsCount = (name.length + id) % 4
@@ -36,17 +46,18 @@ export default class StatItem extends Component {
                     </div>)
       }
     }
+
+    let perc = []
+    for (let i = 1; i < fields; i++){
+      perc.push(<div className="stat-item__100perc-indicator" key={i} style={{left: `${100/fields*i}%`}}>
+        <div className="stat-item__100perc-indicator-number">{i*100}%</div>
+      </div>)
+    }
     
     return (
       <div className="stat-item__container">
-        <div className="stat-item__name-section">
-          <div className="stat-item__name">{name} ({city})</div>
-          <div className="stat-item__star-container">
-            {stars}
-          </div>
-        </div>
         <div className="stat-item__progress-bar-container">
-          <div className="stat-item__100perc-indicator"></div>                    
+          <div className="stat-item__line__grey" ></div>          
           <div className="stat-item__progress-bar" style={{
               width: this.state.in && `${percentLineWidth}%`   
             }}>
@@ -63,9 +74,17 @@ export default class StatItem extends Component {
               opacity: this.state.in && 1
             }}>{percent}%</div>
           </div>
+          <div className="stat-item__100perc-indicator" style={{left: 0}}>
+            <div className="stat-item__100perc-indicator-number" style={{left: -5}}>0%</div>
+          </div>
+          {perc}          
         </div>
-        <div className="stat-item__btn-container">
-          <img src={ButtonIcon} alt="btn" className="stat-item_btn" />
+        <div className="stat-item__name-section">
+          <div className="stat-item__star-container">
+            {stars}
+          </div>
+          <div className="stat-item__name">{name}</div>
+          <div className="stat-item__name__nobold">({city})</div>          
         </div>
       </div>
     );

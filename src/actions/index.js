@@ -32,20 +32,21 @@ export const updateLeader = ({id, percent}) => ({
   percent
 })
 
-export const receiveLeaders = ({maxPage, entities, result, currPage}) => {
+export const receiveLeaders = ({maxPage, entities, result, currPage, maxPerc}) => {
   return {
     type: RECEIVE_LEADERS,
     maxPage,
     entities,
     result,
-    currPage
+    currPage,
+    maxPerc
   }
 }
 
 export const fetchLeaders = (nil) => (dispatch, getState) => {
   dispatch(requestLeaders())
   const {query, sort} = getState().filters
-  const {entities, result} = getState().leaders
+  const {entities, result, maxPerc} = getState().leaders
   let {currPage} = getState().leaders
   currPage = nil ? 1 : currPage
   const queries = `page=${currPage}&${sort ? 'sort=true' : ''}&${query.length > 0 ? 'q='+query : ''}`
@@ -55,6 +56,7 @@ export const fetchLeaders = (nil) => (dispatch, getState) => {
     .then(res => {
       const normalized = normalizeData(res.result)
       dispatch(receiveLeaders({
+        maxPerc: Math.max(normalized.entities.leaders[normalized.result[0]].percent, maxPerc),
         entities: nil ? normalized.entities.leaders : {...entities, ...normalized.entities.leaders},
         result: nil ? normalized.result : [...result, ...normalized.result],
         maxPage: res.pages,

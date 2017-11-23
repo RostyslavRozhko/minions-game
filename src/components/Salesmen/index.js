@@ -13,7 +13,14 @@ class Salesmen extends Component {
   }
 
   render() {
-    const {entities, result, isLoading, currPage, maxPage, dispatch} = this.props
+    const {entities, result, isLoading, currPage, maxPage, dispatch, maxPerc} = this.props
+    const getGradeNum = () => {
+      switch(true) {
+        case maxPerc > 0 && maxPerc <= 200: return 2
+        case maxPerc > 200 && maxPerc <= 300: return 3
+        default: return 4
+      }
+    }
     return (
       <div className="main-container__outer">
         <div className="main-container__inner">
@@ -26,7 +33,7 @@ class Salesmen extends Component {
               onLoadMore={() => dispatch(fetchLeaders())}
               hasMore={maxPage >= currPage}
             >
-            {result.map(id => <StatItem person={entities[id]} key={id} />)}
+            {result.map(id => <StatItem person={entities[id]} key={id} fields={getGradeNum()} />)}
             </InfiniteScroll>
           </div>
         </div>
@@ -42,7 +49,8 @@ const mapStateToProps = state => {
       entities,
       currPage,
       result,
-      maxPage
+      maxPage,
+      maxPerc
     }
   } = state
 
@@ -51,7 +59,8 @@ const mapStateToProps = state => {
     entities,
     result,
     currPage,
-    maxPage
+    maxPage,
+    maxPerc
   }
 }
 

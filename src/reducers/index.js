@@ -15,7 +15,8 @@ const leaders = (state = {
   error: false,
   entities: {},
   result: [],
-  currPage: 1
+  currPage: 1,
+  maxPerc: 0
 }, action) => {
   switch (action.type) {
     case INVALIDATE_LEADERS:
@@ -37,7 +38,8 @@ const leaders = (state = {
         entities: action.entities,
         result: action.result,
         currPage: action.currPage,
-        maxPage: action.maxPage
+        maxPage: action.maxPage,
+        maxPerc: action.maxPerc
       }
     case UPDATE_LEADER:
       let stateEntity = state.entities[action.id]
@@ -50,7 +52,8 @@ const leaders = (state = {
           ...state.entities,
           [action.id]: stateEntity
         },
-        result: changeOrder(state.entities, state.result, stateEntity, action.id)
+        result: changeOrder(state.entities, state.result, stateEntity, action.id),
+        maxPerc: action.percent > state.maxPerc ? action.percent : state.maxPerc
       }
     default:
       return state

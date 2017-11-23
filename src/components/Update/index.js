@@ -38,7 +38,7 @@ export default class Topbar extends Component {
   changePercent = (evt, key) => {
     evt.persist()
     const items = this.state.items
-    items[key].percent = evt.target.value * 10
+    items[key].percent = evt.target.value
     this.setState(() => ({
       items
     }))

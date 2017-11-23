@@ -119,12 +119,13 @@
   text-align: center;
 
   position: absolute;
-  z-index: 1;
+  z-index: 4;
   right: -83px;
   top: -67px;
 }
 
 .tooltip-text:before{
+  z-index: 4;
   content:'';
   display:block;
   width:0;
@@ -134,7 +135,7 @@
   border-left: 8px solid transparent;
   border-right: 8px solid transparent;
   border-top:8px solid black;
-  right: 91px;
+  right: 85px;
   
   bottom: -7px;
 }

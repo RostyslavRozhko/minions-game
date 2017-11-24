@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import StarIconActive from '../../assets/favorite-3.png'
 import StarIconPassive from '../../assets/favoriteGrey.png'
-import ButtonIcon from '../../assets/btn.png'
 import {getProgressStyle} from '../../utils/getProgressStyle'
 import delay from 'lodash.delay'
 import './index.css'
@@ -50,7 +49,7 @@ export default class StatItem extends Component {
     let perc = []
     for (let i = 1; i < fields; i++){
       perc.push(<div className="stat-item__100perc-indicator" key={i} style={{left: `${100/fields*i}%`}}>
-        <div className="stat-item__100perc-indicator-number">{i*100}%</div>
+        <div className="stat-item__100perc-indicator-number" style={{fontWeight: i===1 && 'bold'}}>{i*100}%</div>
       </div>)
     }
     
@@ -77,14 +76,17 @@ export default class StatItem extends Component {
           <div className="stat-item__100perc-indicator" style={{left: 0}}>
             <div className="stat-item__100perc-indicator-number" style={{left: -5}}>0%</div>
           </div>
-          {perc}          
+          {perc}    
+          <div className="stat-item__line__dark-green" style={{
+            width: this.state.in && percent > 100 ? `${100/fields}%` : 0
+            }}></div>                
         </div>
         <div className="stat-item__name-section">
           <div className="stat-item__star-container">
             {stars}
           </div>
           <div className="stat-item__name">{name}</div>
-          <div className="stat-item__name__nobold">({city})</div>          
+          <div className="stat-item__name__nobold">({city})</div>  
         </div>
       </div>
     );

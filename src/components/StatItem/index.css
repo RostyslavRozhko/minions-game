@@ -1,13 +1,12 @@
 .stat-item__container {
   display: flex;
-  flex-direction: column;    
+  margin-top: 20px;
 }
 
 .stat-item__name-section {
   display: flex;
-  flex: 1 1 auto;
+  flex: 460px 0;
   align-items: center;
-  margin-top: 15px;
 }
 
 .stat-item__name, .stat-item__name__nobold {
@@ -16,6 +15,13 @@
   font-weight: bold;
   letter-spacing: -0.9px;
   margin-left: 15px;
+}
+
+.stat-item__name {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  width: 215px;
 }
 
 .stat-item__name__nobold {
@@ -45,13 +51,15 @@
 }
 
 .stat-item__minion-icon {
-  z-index: 3;
+  height: 20px;
+  width: auto;
+  z-index: 4;
   transform: scaleX(-1);
   opacity: 0;
+  margin-left: 5px; 
   transition: opacity 2000ms ease-in-out;
   position: absolute;
-  right: 0;
-  top: -70px;
+  right: -30px;
 }
 
 .stat-item__line{
@@ -83,6 +91,7 @@
 }
 
 .stat-item__indicator {
+  position: relative;
   z-index: 3;
   flex: 0 0 50px;
   height: 25px;

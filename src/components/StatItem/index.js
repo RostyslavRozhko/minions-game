@@ -55,15 +55,18 @@ export default class StatItem extends Component {
     
     return (
       <div className="stat-item__container">
+        <div className="stat-item__name-section">
+          <div className="stat-item__star-container">
+            {stars}
+          </div>
+          <div className="stat-item__name">{name}</div>
+          <div className="stat-item__name__nobold">({city})</div>  
+        </div>
         <div className="stat-item__progress-bar-container">
           <div className="stat-item__line__grey" ></div>          
           <div className="stat-item__progress-bar" style={{
               width: this.state.in && `${percentLineWidth}%`   
             }}>
-          <img src={icon} alt="minion" className="stat-item__minion-icon" style={{
-                right: style.right,
-                opacity: this.state.in && 1
-              }} />
           <div className="stat-item__line" style={{
               style,
               backgroundColor: style.backgroundColor
@@ -71,7 +74,11 @@ export default class StatItem extends Component {
             <div className="stat-item__indicator" style={{
               ...style,
               opacity: this.state.in && 1
-            }}>{percent}%</div>
+            }}>{percent}%
+              <img src={icon} alt="minion" className="stat-item__minion-icon" style={{
+                opacity: this.state.in && 1
+              }} />
+            </div>
           </div>
           <div className="stat-item__100perc-indicator" style={{left: 0}}>
             <div className="stat-item__100perc-indicator-number" style={{left: -5}}>0%</div>
@@ -80,13 +87,6 @@ export default class StatItem extends Component {
           <div className="stat-item__line__dark-green" style={{
             width: this.state.in && percent > 100 ? `${100/fields}%` : 0
             }}></div>                
-        </div>
-        <div className="stat-item__name-section">
-          <div className="stat-item__star-container">
-            {stars}
-          </div>
-          <div className="stat-item__name">{name}</div>
-          <div className="stat-item__name__nobold">({city})</div>  
         </div>
       </div>
     );

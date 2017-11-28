@@ -21,7 +21,6 @@ module.exports = {
       .catch(error => res.status(400).send(error));
   },
   update(req, res) {
-    console.log(req.body);
     return Leader
       .findById(req.params.id)
       .then(leader => {
@@ -49,7 +48,7 @@ module.exports = {
       .catch(error => res.status(400).send(error));
   },
   list(req, res) {
-    let limit = 10
+    let limit = 20
     let offset = 0
     Leader.findAndCountAll({
       where: req.query.q && {name: {

@@ -12,8 +12,8 @@ export const getProgressStyle = (perc, fields) => {
     case perc >= 100 && perc < 126: return {icon: DriverIcon, style: {backgroundColor: '#94e100'}}
     case perc > 40 && perc < 100: return {icon: Bussinessmanicon, style: {backgroundColor: '#ffda44'}}
     case perc > 30 && perc < 71: return {icon: StudentIcon, style: {backgroundColor: '#ff8400', color: 'white'}}
-    case perc >= 6  && perc < 31: return {icon: SchoolboyIcon, style: {backgroundColor: '#ff5400', color: 'white', right: '0px'}}
-    case perc >= 0  && perc < 6: return {icon: SchoolboyIcon, style: {backgroundColor: '#ff5400', color: 'white', right: fields === 2 ? '-20px' : '-30px'}}
+    case perc >= 6  && perc < 31: return {icon: SchoolboyIcon, style: {backgroundColor: '#ff5400', color: 'white'}}
+    case perc >= 0  && perc < 6: return {icon: SchoolboyIcon, style: {backgroundColor: '#ff5400', color: 'white'}}
     default: return {icon: PilotIcon, style: {backgroundColor: '#94e100'}}
   }
 }
